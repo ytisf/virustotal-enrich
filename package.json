@@ -1,0 +1,13 @@
+{
+    "name": "vt_enrich",
+    "version": "1.0.0",
+    "description": "Enrich your Obsidian notes with VirusTotal information.",
+    "main": "main.js",
+    "keywords": ["virustotal", "threat hunting", "enrichment"],
+    "author": "",
+    "license": "GNU",
+    "dependencies": {
+      "node-fetch": "^3.3.2"
+    }
+  }
+  
