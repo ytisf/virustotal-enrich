@@ -3,7 +3,7 @@
     "name": "Virus Total Enrichment Plugin",
     "version": "0.0.1",
     "minAppVersion": "1.5.12",
-    "description": "Enrich your Obsidian notes with VirusTotal information.",
+    "description": "Enrich your notes with information from VirusTotal.",
 	"author": "Yuval tisf Nativ",
 	"authorUrl": "https://www.github.com/ytisf/",
 	"isDesktopOnly": true
