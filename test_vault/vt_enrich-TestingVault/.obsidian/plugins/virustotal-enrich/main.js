@@ -274,7 +274,7 @@ class AboutModal extends Modal {
 
       contentEl.createEl('img', {
           attr: {
-              src: 'path_to_your_image.png',
+              src: 'Logo.png',
               alt: 'Plugin Icon'
           },
           cls: 'modal-icon'
