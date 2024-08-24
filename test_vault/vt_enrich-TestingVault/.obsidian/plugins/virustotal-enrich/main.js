@@ -380,11 +380,11 @@ class EnrichIndicator {
     const activeLeaf = this.app.workspace.activeLeaf;
 
     if (activeLeaf) {
-        const editor = activeLeaf.view.sourceMode.cmEditor;
+        // const editor = activeLeaf.view.sourceMode.cmEditor;
         const noteTitle = this.app.workspace.getActiveFile().basename;
 
-        var search_type = identifyInput(noteTitle);
-        var url_to_get = `https://www.virustotal.com/api/v3/${search_type}/${noteTitle}`;
+        const search_type = identifyInput(noteTitle);
+        const url_to_get = `https://www.virustotal.com/api/v3/${search_type}/${noteTitle}`;
 
         // Use the curlRequest function to send data to an API
         httpFunction({
@@ -400,7 +400,7 @@ class EnrichIndicator {
               try {
                 // Attempt to parse the content string into JSON
                 var fixed_content = convertEpochToISO(JSON.parse(response.content)["data"]);
-                var data = JSON.stringify(fixed_content, null, 2);
+                let data = JSON.stringify(fixed_content, null, 2);
               } catch (error) {
                 console.error('Error parsing JSON from content:', error);
                 var data = '{"error": "Failed to parse content"}';
@@ -415,13 +415,13 @@ class EnrichIndicator {
             }
             
             // Got Response - Now process it:
-            var bottom_appendix = '\n\n\n\n\n#### Appendix - VirusTotal Output\n```json\n' + data + '\n```\n\n';
+            const bottom_appendix = '\n\n\n\n\n#### Appendix - VirusTotal Output\n```json\n' + data + '\n```\n\n';
 
             // Ensure the cursor is at the bottom and append the data
             editor.setCursor(editor.lineCount(), 0);
             editor.replaceSelection(bottom_appendix);
 
-            const file = this.app.workspace.getActiveFile();
+            const file = editor.file;
             this.app.fileManager.processFrontMatter(file, (frontmatter) => {
                 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
 
