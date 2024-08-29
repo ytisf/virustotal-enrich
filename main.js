@@ -116,7 +116,7 @@ function convertEpochToISO(obj) {
               if (typeof obj[key] === 'object') {
                   convert(obj[key]); // Recursively search for nested objects
               } else if (typeof obj[key] === 'number' && isEpoch(obj[key])) {
-                  var newDate = new Date(obj[key] * 1000).toISOString(); // Convert epoch to ISO date-time string
+                  let newDate = new Date(obj[key] * 1000).toISOString(); // Convert epoch to ISO date-time string
                   obj[key] = newDate.replace(/_/g, '-').replace('T', ' ').replace(/(\d{2})_(\d{2})_(\d{2})/, '$1:$2:$3').split('.')[0];
 
               }
@@ -399,17 +399,17 @@ class EnrichIndicator {
             if (response && response.content) {
               try {
                 // Attempt to parse the content string into JSON
-                var fixed_content = convertEpochToISO(JSON.parse(response.content)["data"]);
+                let fixed_content = convertEpochToISO(JSON.parse(response.content)["data"]);
                 let data = JSON.stringify(fixed_content, null, 2);
               } catch (error) {
                 console.error('Error parsing JSON from content:', error);
-                var data = '{"error": "Failed to parse content"}';
+                let data = '{"error": "Failed to parse content"}';
                 new Notice(`Request failed: ${response.content}`);
                 return;
               }
             } else {
               console.error('Invalid or missing data in response:', response);
-              var data = '{"error": "No content found"}';
+              let data = '{"error": "No content found"}';
               new Notice(`Request failed: ${response.content}`);
               return;
             }
