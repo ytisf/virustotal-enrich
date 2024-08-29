@@ -1,7 +1,7 @@
 {
     "id": "virustotal-enrich",
     "name": "Virus Total Enrichment",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "minAppVersion": "1.5.12",
     "description": "Enrich your notes with information from VirusTotal.",
 	"author": "ytisf",
