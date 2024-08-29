@@ -377,11 +377,11 @@ class EnrichIndicator {
       httpFunction = fetchUrl;
     }
 
-    const activeLeaf = this.app.workspace.activeLeaf;
+    // const activeLeaf = this.app.workspace.activeLeaf;
 
     if (activeLeaf) {
         // const editor = activeLeaf.view.sourceMode.cmEditor;
-        const noteTitle = this.app.workspace.getActiveFile().basename;
+        const noteTitle = editor.file.basename;
 
         const search_type = identifyInput(noteTitle);
         const url_to_get = `https://www.virustotal.com/api/v3/${search_type}/${noteTitle}`;
